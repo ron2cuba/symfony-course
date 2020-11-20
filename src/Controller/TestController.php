@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Taxes\Calculator;
 use Cocur\Slugify\Slugify;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,5 +29,21 @@ class TestController
         
         dump("test !");
         return new Response("$param baby!");
+    }
+
+    /**
+     * ne pas oublier de mettre $name en parametre de la function
+     * @Route("/hello/{name?World}", name="hello")
+     */
+
+    public function hello($name, loggerInterface $logger, Calculator $calculator)
+    {
+        $logger->info("Mesage de log !");
+
+        $tva = $calculator->calcul(100);
+
+        dump($tva);
+        
+        return new Response("Hello $name");
     }
 }
