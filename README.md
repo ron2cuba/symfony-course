@@ -329,7 +329,7 @@ Pour l'exemple installons le package `cocur/slugify`.
 
 Imaginons dans le HelloController que l'on souhaite injecter le service sans avoir besoin d'instancier sa classe et d'importer avec un use:
 ```php
-public function hello($name, loggerInterface $logger, Slugify $slugify)
+public function hello($name, LoggerInterface $logger, Slugify $slugify)
     {
         $logger->error("Mesage de log !");
 
