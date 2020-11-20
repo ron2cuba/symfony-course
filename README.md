@@ -1,4 +1,4 @@
-# Offoron
+# Symfony Course
 
 ## la mise en place
 
