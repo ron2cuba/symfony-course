@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Taxes\Detector;
 use App\Taxes\Calculator;
 use Cocur\Slugify\Slugify;
 use Psr\Log\LoggerInterface;
@@ -36,8 +37,11 @@ class TestController
      * @Route("/hello/{name?World}", name="hello")
      */
 
-    public function hello($name, loggerInterface $logger, Calculator $calculator)
+    public function hello($name, loggerInterface $logger, Calculator $calculator, Detector $detector)
     {
+        dump($detector->detect(101));
+        dump($detector->detect(10));
+        
         $logger->info("Mesage de log !");
 
         $tva = $calculator->calcul(100);
