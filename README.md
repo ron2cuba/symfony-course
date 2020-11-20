@@ -344,3 +344,7 @@ Dans `config\services.yaml` ajouter le namespace et si rien de particulier un `~
 ```yaml
 Cocur\Slugify\Slugify: ~
 ```
+## Différence entre Bundles et librairies
+
+Les <b>bundles sont déclarés dynamiquement</b> dans `config\bundles.php`, le même principe reste le même (faire connaitre au container de services de nouveau services).
+
