@@ -348,3 +348,17 @@ Cocur\Slugify\Slugify: ~
 
 Les <b>bundles sont déclarés dynamiquement</b> dans `config\bundles.php`, le même principe reste le même (faire connaitre au container de services de nouveau services).
 
+<u><b>recap:</b></u>
+
+Quand Symfony recoit une requête HTTP:
+
+- il vérifie avec l'urlMatcher que l'url recu correspond à une route. Soit via annotation soit via Yaml. 
+
+- il check quelle fonction est censée répondre
+
+- Arrive l'`ArgumentResolver` qui analyse les parametres qui sont demandés par cette fonction.
+
+Alors 3 possibilités:
+1. un paramètre est une instance de `Request`, il sera donc envoyé par symfony
+2. un paramètre est dans une route `{prénom} => $prenom`
+3. un ou plusieurs paramètres sont des services dans le container
