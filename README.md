@@ -339,3 +339,8 @@ public function hello($name, LoggerInterface $logger, Slugify $slugify)
         
         return new Response("Hello $name");
     }
+```
+Dans `config\services.yaml` ajouter le namespace et si rien de particulier un `~`:
+```yaml
+Cocur\Slugify\Slugify: ~
+```
