@@ -383,3 +383,15 @@ Du templating classique.
     }
 ```
 
+## les tags Twig
+
+Tous Tags dans la doc: `https://twig.symfony.com/doc/3.x/`
+
+## Les filtres
+
+Dasn la même documenation, retenir qu'ils s'utilisent apres un tag et qu'il faut les précéder d'un pipe `|`.
+
+## las variables et les actions
+
+les variables sont entourées de `{{ }}` alors que les actions (for, if etc) sont entourées de `{% %}`
+
