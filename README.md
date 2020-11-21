@@ -217,7 +217,7 @@ Si, par exemple, l'on souhaite rajouter un service de log :
 ```sh
 php bin/console debug:autowiring Log
 ```
-Il faut injecter la dépendence, dans le constructeur :
+Il faut injecter la dépendance, dans le constructeur :
 ```php
 class HelloController
 {
@@ -241,7 +241,7 @@ class HelloController
 Symfony analyse le constructeur d'une classe pour lui fournir ce qu'elle demande.
 </b>
 
-Et Si la méthode est couplée à une route, pas besoin de constructeur, on peut injecter directementy dans la methode de class :
+Et Si dans la classe, la méthode est couplée à une route, pas besoin de constructeur, on peut lui injecter directement :
 ```php
 class HelloController
 {
@@ -293,7 +293,7 @@ Pour aller plus loin il est important de comprende la notion du contenuer de ser
 ## les limites du container de services
 
 Dans `config\services.yaml` on peut définir les services que l'on veut injecter dans le container de services.
-Imaginons dans `Taxes/Calculatop.php` (le calculateur de tva) un paramètre fixe $tva: 
+Imaginons dans `Taxes/Calculatop.php` (le calculateur de tva) un paramètre fixe $tva, il faut dans ce cas aller le déclarer dans `config\services.yaml`: 
 ```php
 namespace App\Taxes;
 
@@ -318,6 +318,7 @@ class Calculator
     }
 }
 ```
+`config\services.yaml`: 
 ```yaml
   services:
     App\Taxes\Calculator:
@@ -346,26 +347,26 @@ Cocur\Slugify\Slugify: ~
 ```
 ## Différence entre Bundles et librairies
 
-Les <b>bundles sont déclarés dynamiquement</b> dans `config\bundles.php`, le même principe reste le même (faire connaitre au container de services de nouveau services).
+Les <b>bundles sont déclarés dynamiquement</b> dans `config\bundles.php`, le principe reste le même (faire connaitre au container de services de nouveau services).
 
 <u><b>recap:</b></u>
 
 Quand Symfony recoit une requête HTTP:
 
-- il vérifie avec l'urlMatcher que l'url recu correspond à une route. Soit via annotation soit via Yaml. 
+- il vérifie avec l'urlMatcher que l'url recu correspond à une route. Soit via annotation, soit via `.yaml`. 
 
 - il check quelle fonction est censée répondre
 
-- Arrive l'`ArgumentResolver` qui analyse les parametres qui sont demandés par cette fonction.
+- L'`ArgumentResolver` analyse les parametres qui sont demandés par cette fonction.
 
 Alors 3 possibilités:
 1. un paramètre est une instance de `Request`, il sera donc envoyé par symfony
-2. un paramètre est dans une route `{prénom} => $prenom`
+2. un paramètre est dans une route ex: `{prénom}` devient `$prenom`
 3. un ou plusieurs paramètres sont des services dans le container
 ## Découverte de Twig
 
 Du templating classique.
-1. Vérifier son installation, au besoin `composer require Twig` (L'alias suffit, Symfony Flex se chargera de trouver pour nous les bons packages).
+1. Vérifier son installation, au besoin `composer require Twig` (L' alias suffit, Symfony Flex se chargera de trouver pour nous de trouver les bons packages).
 2. Faire l'autowiring dans la methode du controller qui en a besoin.
     Symfony se chargera des requires nécessaires pour aller chercher les vues dans le dossier `templates`.
 3. Pour passer des variables à la vue, les renseigner sous forme de <u>tableau</u> dans la fonction render.
