@@ -362,3 +362,23 @@ Alors 3 possibilités:
 1. un paramètre est une instance de `Request`, il sera donc envoyé par symfony
 2. un paramètre est dans une route `{prénom} => $prenom`
 3. un ou plusieurs paramètres sont des services dans le container
+## Découverte de Twig
+
+Du templating classique.
+1. Vérifier son installation, au besoin `composer require Twig` (L'alias suffit, Symfony Flex se chargera de trouver pour nous les bons packages).
+2. Faire l'autowiring dans la methode du controller qui en a besoin.
+    Symfony se chargera des requires nécessaires pour aller chercher les vues dans le dossier `templates`.
+3. Pour passer des variables à la vue, les renseigner sous forme de <u>tableau</u> dans la fonction render.
+
+```php
+/**
+     * ne pas oublier de mettre $name en parametre de la function
+     * @Route("/twig/{name?World}", name="twig")
+     */
+    public function twig($name, Environment $twig)
+    {
+        $html = $twig->render('hello.html.twig', ['name' =>$name]);
+       return new Response($html);
+    }
+```
+

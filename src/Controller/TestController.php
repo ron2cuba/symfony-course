@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use Twig\Environment;
 use App\Taxes\Detector;
 use App\Taxes\Calculator;
 use Cocur\Slugify\Slugify;
@@ -49,5 +50,15 @@ class TestController
         dump($tva);
         
         return new Response("Hello $name");
+    }
+
+    /**
+     * ne pas oublier de mettre $name en parametre de la function
+     * @Route("/twig/{name?World}", name="twig")
+     */
+    public function twig($name, Environment $twig)
+    {
+        $html = $twig->render('hello.html.twig', ['name' =>$name]);
+       return new Response($html);
     }
 }
