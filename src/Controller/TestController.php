@@ -58,7 +58,15 @@ class TestController
      */
     public function twig($name, Environment $twig)
     {
-        $html = $twig->render('hello.html.twig', ['name' =>$name]);
+        $html = $twig->render('hello.html.twig', [
+            'name' => $name,
+            'ages'  => [
+                12,
+                18,
+                29,
+                15
+            ]
+            ]);
        return new Response($html);
     }
 }
