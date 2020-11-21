@@ -2,7 +2,7 @@
 
 ## la mise en place
 
-- mise en place du projet par la CLI Symfony:
+- mise en place du projet par la CLI Symfony (projet est ici un nom générique):
 ```sh
 symfony new projet --version=5.1
 ```
