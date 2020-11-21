@@ -383,7 +383,7 @@ Du templating classique.
     }
 ```
 
-## les tags Twig
+## les tags
 
 Tous Tags dans la doc: `https://twig.symfony.com/doc/3.x/`
 
