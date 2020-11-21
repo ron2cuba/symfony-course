@@ -4,7 +4,7 @@
 
 - mise en place du projet par la CLI Symfony:
 ```sh
-symfony new offoron --version=5.1
+symfony new projet --version=5.1
 ```
 - Installer le https :
 ```sh
