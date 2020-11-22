@@ -16,8 +16,8 @@ class TestController
      */
     public function index()
     {
-        dump("Yeah !");
-        return new Response("Yeah baby!");
+        dump("Yeah Baby!");
+        return new Response("Yeah baby yeah!");
     }
 
     /**

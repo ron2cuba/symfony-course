@@ -395,3 +395,23 @@ Dasn la même documenation, retenir qu'ils s'utilisent apres un tag et qu'il fau
 
 les variables sont entourées de `{{ }}` alors que les actions (for, if etc) sont entourées de `{% %}`
 
+## Tableaux et objets
+
+Même syntaxe pour les deux, si dans le controller on a stocké un tableau ou un objet dans une variable, on peut l'exploiter comme ceci :
+```php
+public function maFonction(Environment $twig)
+{
+    $html = $twig->render('nomDeMonTemplate.twig.html', [
+        'personnage' => [
+            'prenom' => 'Bob',
+            'nom' => 'Razowski',
+            'description' =>  'un monstre cyclope de petite taille, de couleur verte, qui possède également deux petites cornes.'
+        ]
+    ])
+}
+```
+dans le template :
+```html
+<p>{{personnage.prenom}} {{personnage.nom}} est {{personnage.description}}</p>
+```
+
