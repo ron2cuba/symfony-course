@@ -18,7 +18,11 @@ Pour le stopper :
 ```sh
 symfony server:stop
 ```
-
+## Autoloading
+Celui de Composer sera utilisé:
+```sh
+composer dump-autoload
+```
 ## Les routes
 
 Elles sont configurées dans le dossier `config/routes/routes.yaml`.
@@ -429,10 +433,34 @@ namespace App\Controller;
 class TestController
 
 {
+    protected $twig;
+
+    public function __construct(Environment $twig){
+        $this->twig = $twig;
+    }
+
+    ...
+
     protected function render(string $path, array $variables = [])
     {
-        $html = this->twig->render($path, $variables);
+        $html = $this->twig->render($path, $variables);
         return new Response($html);
     }
 }
+```
+## AbstractController
 
+Il évite de faire soi même ces fontcions de simplification. Il héritera de la classe AbstractController :
+```php
+...
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+...  
+class MonController extends AbstractController
+{
+    ...
+}
+```
+Plus besoin de créer cette fonction `render()` ni de constructeur.
+Cette classe sera détaillée dans un autre mémo.
+
+<b>A retenir :</b> <u>il rend le travail plus simple</u>
