@@ -414,4 +414,8 @@ dans le template :
 ```html
 <p>{{personnage.prenom}} {{personnage.nom}} est {{personnage.description}}</p>
 ```
+## Héritage
+`https://twig.symfony.com/doc/3.x/templates.html#template-inheritance`
+## Inclusion :
+`https://twig.symfony.com/doc/3.x/templates.html#including-other-templates`
 
