@@ -419,3 +419,20 @@ dans le template :
 ## Inclusion :
 `https://twig.symfony.com/doc/3.x/templates.html#including-other-templates`
 
+## Dynamiser son code
+
+(php basique)
+se faire une fonction de rendu pour dynamiser son code.
+```php
+namespace App\Controller;
+...
+class TestController
+
+{
+    protected function render(string $path, array $variables = [])
+    {
+        $html = this->twig->render($path, $variables);
+        return new Response($html);
+    }
+}
+
